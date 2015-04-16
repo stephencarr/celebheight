@@ -1,0 +1,29 @@
+<%= form_for(@scan) do |f| %>
+  <% if @scan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
+
+      <ul>
+      <% @scan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :html %><br />
+    <%= f.text_area :html %>
+  </div>
+  <div class="field">
+    <%= f.label :last_scan %><br />
+    <%= f.datetime_select :last_scan %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

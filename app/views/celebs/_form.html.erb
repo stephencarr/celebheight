@@ -1,0 +1,64 @@
+<%= form_for(@celeb) do |f| %>
+    <% if @celeb.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@celeb.errors.count, "error") %> prohibited this celeb from being saved:</h2>
+
+          <ul>
+            <% @celeb.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :full_name %><br />
+      <%= f.text_field :full_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :wiki_name %><br />
+      <%= f.text_field :wiki_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %><br />
+      <%= image_tag(@celeb.avatar_url) if @celeb.avatar? %><br />
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div class="field">
+      <%= f.label :metric_height %><br />
+      <%= f.text_field :metric_height %>
+    </div>
+
+    <div class="field">
+      <%= f.label :twitter_id %><br />
+      <%= f.text_field :twitter_id %>
+    </div>
+
+    <div class="field">
+      <%= f.label :scanned %><br />
+      <%= f.check_box :scanned %>
+    </div>
+
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>

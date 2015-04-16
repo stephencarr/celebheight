@@ -1,0 +1,2 @@
+module CelebsHelper
+end

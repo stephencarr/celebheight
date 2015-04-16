@@ -1,0 +1,58 @@
+.celebs-search {
+  margin-top: 10px;
+  @include box-shadow(#ccc 0px 2px 10px);
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.celebs-search--form {
+  margin:0;
+  padding: 0;
+  position: relative;
+}
+
+.celebs-search--form .celebs-search--name {
+  padding-right: 8px;
+  padding-right: 4px \9;
+  padding-left: 8px;
+  padding-left: 4px \9;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.celebs-search--form button {
+  border: 0;
+  background: none;
+  /** belows styles are working good */
+  padding: 2px 5px;
+  margin-top: 2px;
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.celebs-search--name:focus + button {
+  z-index: 3;
+}
+
+
+@-webkit-keyframes pulse
+{
+  0% {background-color: #fff;}
+  50% {background-color: #c1ffc1;}
+  100% {background-color: #fff;}
+}
+
+.celebs-search--name.searching {
+  -webkit-animation: pulse 1s ease -3s infinite;
+}

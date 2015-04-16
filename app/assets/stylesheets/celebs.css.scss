@@ -1,0 +1,79 @@
+// Place all the styles related to the Celebs controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.celebresults {
+  position: relative;
+  padding-top: 100px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.celebresults--pagination {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+
+.celebitem {
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  width: 160px;
+  height: 100px;
+  margin: 0;
+  background: #efefef;
+  @include background-image(linear-gradient(#fff 40px, #efefef));
+  -webkit-transition: height 0.2s ease-in, opacity 0.3s ease 0.5s;
+  -moz-transition: height 0.2s ease-in, opacity 0.3s ease 0.5s;
+  -ms-transition: height 0.2s ease-in, opacity 0.3s ease 0.5s;
+  -o-transition: height 0.2s ease-in, opacity 0.3s ease 0.5s;
+  transition: height 0.2s ease-in, opacity 0.3s ease 0.5s;
+}
+
+.celebitem--heading {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  @include box-shadow(#ccc 0px 2px 5px);
+  background: #fff;
+  width: 170px;
+  margin-left: -5px;
+  position: absolute;
+  top: 80px;
+}
+
+.celebitem--fullname {
+  margin: 0;
+  font-size: 16px;
+}
+
+.celebitem--metawrap {
+  display: block;
+  white-space: nowrap;
+}
+
+.celebitem--metricheight, .celebitem--impheight, .celebitem__empty {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.celebitem__empty {
+  text-align: center;
+
+}
+
+.celebitem--image {
+  width: 70px;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  img {
+    border: 2px solid #19DD89;
+  }
+
+}
+
+.celebitem--description {
+  display: none;
+  color: #ccc;
+}

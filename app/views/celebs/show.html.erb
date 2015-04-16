@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @celeb.first_name %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @celeb.last_name %>
+</p>
+
+<p>
+  <b>Fullname:</b>
+  <%= @celeb.full_name %>
+</p>
+
+<p>
+  <b>Metricheight:</b>
+  <%= @celeb.metric_height %>
+</p>
+
+<p>
+  <b>Twitter ID:</b>
+  <%= @celeb.twitter_id %>
+</p>
+
+<p>
+  <b>Tweets:</b>
+  <%= @celeb.tweets %>
+</p>
+
+
+<%= link_to 'Edit', edit_celeb_path(@celeb) %> |
+<%= link_to 'Back', celebs_path %>

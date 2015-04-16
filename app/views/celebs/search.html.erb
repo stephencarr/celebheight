@@ -1,0 +1,43 @@
+<div id="wrap" class="row stage">
+  <div class="fadeleft"></div>
+  <div class="faderight"></div>
+  <%= render 'searchForm' %>
+
+  <div id="content" class="celebresults clearfix stage" data-maximum="<%= @maximum %>">
+
+    <div class="celebresults--pagination">
+      <%= paginate @celebs %>
+    </div>
+
+    <% if @celebs.blank? %>
+        <div class="panel panel-warning">
+          <div class="panel-body clearfix">
+            <div class="celebitem__empty">No celebs found</div>
+          </div>
+        </div>
+    <% else %>
+        <div class="clearfix">
+          <% @celebs.each do |celeb| %>
+              <div class="celebitem" data-scale="<%= number_with_precision(celeb.metric_height, precision: 3, significant: true) %>" data-content="<%= celeb.description %>">
+                <div class="celebitem--heading">
+                  <h2 class="celebitem--fullname">
+                    <%if celeb.temp.blank? %>
+                        <%= link_to celeb.full_name, celeb %>
+                    <% else %>
+                        <%= celeb.full_name =%>
+                    <% end %>
+                    <span class="celebitem--metawrap"><span class="celebitem--metricheight"><%= number_with_precision(celeb.metric_height, precision: 3, significant: true) %> m</span>&nbsp;&harr;&nbsp;<span class="celebitem--impheight"><%= number_with_precision(((celeb.metric_height / 0.3048 * 100) * 0.01), precision: 2, significant: true) %> ft<span></span></span>
+                  </h2>
+                </div>
+                <div class="panel-body clearfix">
+                  <div class="celebitem--image">
+                    <img class="img-circle img-responsive" src="<%= celeb.avatar.thumb.url %>" alt="<%= celeb.first_name %>" width="70" height="70">
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+
+</div>
